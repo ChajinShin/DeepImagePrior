@@ -54,9 +54,9 @@ class UpModule(nn.Module):
         return x
 
 
-class InpaintNetwork(nn.Module):
+class Network(nn.Module):
     def __init__(self, in_channels: int, out_channels: int, cnum: int = 32):
-        super(InpaintNetwork, self).__init__()
+        super(Network, self).__init__()
         self.model = nn.Sequential(
             DownModule(in_channels, cnum),
             DownModule(cnum, 2*cnum),

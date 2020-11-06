@@ -43,24 +43,35 @@ class Solver(object):
         self.recorder = CSV_Recorder()
 
     def _dataloader_setting(self):
-        # get image / mask
-        img = imread(self.opt['img_dir']) / 255.0
-        mask = imread(self.opt['mask_dir']) / 255.0
+        if self.opt['task'] == 'Inpaint':
+            # get image / mask
+            img = imread(self.opt['img_dir']) / 255.0
+            mask = imread(self.opt['mask_dir']) / 255.0
 
-        # ToTensor
-        self.img = normalize_and_to_tensor(img).to(self.dev)
-        self.mask = to_tensor(mask).to(self.dev)
+            # ToTensor
+            self.img = normalize_and_to_tensor(img).to(self.dev)
+            self.mask = to_tensor(mask).to(self.dev)
 
-        # noise
-        self.z = torch.randn_like(self.mask)
+            # noise
+            self.z = torch.randn_like(self.mask)
+
+        elif self.opt['task'] == 'SuperResolution':
+            # get low resolution image
+            img = imread(self.opt['img_dir']) / 255.0
+            self.img = normalize_and_to_tensor(img).to(self.dev)
+
+            # noise
+            self.z = torch.randn([1, 1, *self.opt['output_resolution']]).to(self.dev)
+
+            # downsampler
+            self.downsampler = torch.nn.functional.interpolate
+
+        else:
+            raise ValueError("task {} is not valid.".format(self.opt['task']))
 
     def _network_setting(self):
         # network
-        if self.opt['task'] == 'Inpaint':
-            self.network = network.InpaintNetwork(in_channels=1, out_channels=3, cnum=self.opt['cnum']).to(self.dev)
-            # self.network = network.InpaintNetwork().to(self.dev)
-        else:
-            raise ValueError("Value '{}' of option 'task' is not available".format(self.opt['task']))
+        self.network = network.Network(in_channels=1, out_channels=3, cnum=self.opt['cnum']).to(self.dev)
 
         # optimizer
         if self.opt['optim'] == 'adam':
@@ -76,11 +87,6 @@ class Solver(object):
         # elapsed time setting
         self.Eta = ElapsedTimeProcess(max_iter=self.opt['iterations'])
 
-    def load_parameter(self):
-        state_dict = torch.load(self.opt['parameters'], map_location='cpu')
-        self.network.load_state_dict(state_dict['network'])
-        self.optim.load_state_dict(state_dict['optimizer'])
-
     def save_parameter(self):
         state_dict = dict()
         state_dict['network'] = self.network.state_dict()
@@ -88,6 +94,14 @@ class Solver(object):
         torch.save(state_dict, self.opt['parameters'])
 
     def fit(self):
+        if self.opt['task'] == 'Inpaint':
+            self.fit_inpaint()
+        elif self.opt['task'] == 'SuperResolution':
+            self.fit_super_resolution()
+        else:
+            raise ValueError('task of {} is not valid'.format(self.opt['task']))
+
+    def fit_inpaint(self):
         # masked image save
         masked_img = self.img * (1 - self.mask) + self.mask
         masked_img = to_numpy_img(masked_img)
@@ -135,6 +149,46 @@ class Solver(object):
         plt.show()
         imsave(str(self.exp_path / 'result.jpg'), img)
 
+    def fit_super_resolution(self):
+        # training
+        for iteration in range(self.opt['iterations']):
+            self.optim.zero_grad()
+
+            # forward
+            out = self.network(self.z)
+
+            # downsample
+            downsample_out = self.downsampler(out, size=[self.img.size(2), self.img.size(3)], mode='bilinear', align_corners=True)
+
+            # loss
+            loss = self.criterion(downsample_out, self.img)
+
+            # backward
+            loss.backward()
+            self.optim.step()
+            self.recorder.write_data('step_{}'.format(iteration), 'loss', loss.item())
+
+            # Process printing
+            elapsed_time = self.Eta.end()
+            self.Pb.step(other_info='Loss: {:.4f},    ETA: '.format(loss.item()) + elapsed_time)
+
+            # evaluation
+            if iteration % self.opt['evaluation_step'] == 0:
+                # show image
+                img = to_numpy_img(out)
+                imshow(img)
+                plt.show()
+
+                # save image
+                imsave(str(self.exp_path / '{}.jpg'.format(iteration)), img)
+            self.Eta.start()
+
+        self.recorder.to_csv(self.exp_path / 'recorder.csv')
+        out = self.network(self.z)
+        img = to_numpy_img(out)
+        imshow(img)
+        plt.show()
+        imsave(str(self.exp_path / 'result.jpg'), img)
 
 
 

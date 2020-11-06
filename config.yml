@@ -9,16 +9,14 @@ img_dir: './tower.jpg'
 mask_dir: './mask.png'   # for image inpainting
 
 # task
-task: 'Inpaint'  # 'Inpaint' available
+task: 'SuperResolution'  # 'Inpaint', 'SuperResolution' available
 experiment_folder: './inpaint_exp'
-test_only: False
 
 # Network
 cnum: 32
-parameter: './inpaint_exp/parameters.pth'
 
 # Training
-iterations: 5000
+iterations: 3000
 evaluation_step: 100
 optim: 'adam'
 lr: 1e-2
@@ -26,3 +24,7 @@ betas:
   - 0.5
   - 0.9
 
+# task specific parameter
+output_resolution:    # for SuperResolution
+  - 1024     # height
+  - 1024     # width
