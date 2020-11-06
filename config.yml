@@ -1,0 +1,28 @@
+# Device
+use_cuda: True
+device_idx: '0'
+num_workers: 4
+seed: 17
+
+# dataset
+img_dir: './tower.jpg'
+mask_dir: './mask.png'   # for image inpainting
+
+# task
+task: 'Inpaint'  # 'Inpaint' available
+experiment_folder: './inpaint_exp'
+test_only: False
+
+# Network
+cnum: 32
+parameter: './inpaint_exp/parameters.pth'
+
+# Training
+iterations: 5000
+evaluation_step: 100
+optim: 'adam'
+lr: 1e-2
+betas:
+  - 0.5
+  - 0.9
+
