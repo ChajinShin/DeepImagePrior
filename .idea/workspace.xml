@@ -26,7 +26,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="G:/내 드라이브/My paper/Continuously Conditional Image Generation/MaskGenerator" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -75,7 +75,12 @@
       <workItem from="1604199766622" duration="9031000" />
       <workItem from="1604384686440" duration="8300000" />
       <workItem from="1604410995287" duration="47000" />
-      <workItem from="1604639388221" duration="6592000" />
+      <workItem from="1604639388221" duration="7211000" />
+      <workItem from="1604649044077" duration="1410000" />
+      <workItem from="1604887691516" duration="48000" />
+      <workItem from="1604909982215" duration="979000" />
+      <workItem from="1604979549994" duration="11000" />
+      <workItem from="1604984097614" duration="787000" />
     </task>
     <servers />
   </component>
@@ -83,53 +88,54 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="795" y="338" key="FileChooserDialogImpl" timestamp="1604411038600">
+    <state x="795" y="338" key="FileChooserDialogImpl" timestamp="1604984161798">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="795" y="338" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604411038600" />
+    <state x="795" y="338" key="FileChooserDialogImpl/0.0.1920.1040/-1080.-129.1080.1880@0.0.1920.1040" timestamp="1604887717659" />
+    <state x="795" y="338" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604984161798" />
     <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400/-1920.145.1920.1040@0.0.2560.1400" timestamp="1604201631138" />
-    <state width="1877" height="227" key="GridCell.Tab.0.bottom" timestamp="1604645652903">
+    <state width="1877" height="227" key="GridCell.Tab.0.bottom" timestamp="1604984889097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1080.-129.1080.1880@0.0.1920.1040" timestamp="1604645652903" />
-    <state width="1877" height="144" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604393039782" />
-    <state width="1877" height="227" key="GridCell.Tab.0.center" timestamp="1604645652903">
+    <state width="1877" height="227" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1080.-129.1080.1880@0.0.1920.1040" timestamp="1604910966010" />
+    <state width="1877" height="227" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604984889097" />
+    <state width="1877" height="227" key="GridCell.Tab.0.center" timestamp="1604984889096">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.center/0.0.1920.1040/-1080.-129.1080.1880@0.0.1920.1040" timestamp="1604645652903" />
-    <state width="1877" height="144" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604393039781" />
-    <state width="1877" height="227" key="GridCell.Tab.0.left" timestamp="1604645652903">
+    <state width="1877" height="227" key="GridCell.Tab.0.center/0.0.1920.1040/-1080.-129.1080.1880@0.0.1920.1040" timestamp="1604910966010" />
+    <state width="1877" height="227" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604984889096" />
+    <state width="1877" height="227" key="GridCell.Tab.0.left" timestamp="1604984889096">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.left/0.0.1920.1040/-1080.-129.1080.1880@0.0.1920.1040" timestamp="1604645652903" />
-    <state width="1877" height="144" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604393039781" />
-    <state width="1877" height="227" key="GridCell.Tab.0.right" timestamp="1604645652903">
+    <state width="1877" height="227" key="GridCell.Tab.0.left/0.0.1920.1040/-1080.-129.1080.1880@0.0.1920.1040" timestamp="1604910966010" />
+    <state width="1877" height="227" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604984889096" />
+    <state width="1877" height="227" key="GridCell.Tab.0.right" timestamp="1604984889097">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="227" key="GridCell.Tab.0.right/0.0.1920.1040/-1080.-129.1080.1880@0.0.1920.1040" timestamp="1604645652903" />
-    <state width="1877" height="144" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604393039782" />
-    <state width="1877" height="260" key="GridCell.Tab.1.bottom" timestamp="1604645636604">
+    <state width="1877" height="227" key="GridCell.Tab.0.right/0.0.1920.1040/-1080.-129.1080.1880@0.0.1920.1040" timestamp="1604910966010" />
+    <state width="1877" height="227" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604984889097" />
+    <state width="1877" height="260" key="GridCell.Tab.1.bottom" timestamp="1604649009905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="260" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1080.-129.1080.1880@0.0.1920.1040" timestamp="1604645636604" />
-    <state width="1877" height="260" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604393039778" />
-    <state width="1877" height="260" key="GridCell.Tab.1.center" timestamp="1604645636604">
+    <state width="1877" height="260" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604649009905" />
+    <state width="1877" height="260" key="GridCell.Tab.1.center" timestamp="1604649009905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="260" key="GridCell.Tab.1.center/0.0.1920.1040/-1080.-129.1080.1880@0.0.1920.1040" timestamp="1604645636604" />
-    <state width="1877" height="260" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604393039778" />
-    <state width="1877" height="260" key="GridCell.Tab.1.left" timestamp="1604645636604">
+    <state width="1877" height="260" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604649009905" />
+    <state width="1877" height="260" key="GridCell.Tab.1.left" timestamp="1604649009905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="260" key="GridCell.Tab.1.left/0.0.1920.1040/-1080.-129.1080.1880@0.0.1920.1040" timestamp="1604645636604" />
-    <state width="1877" height="260" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604393039778" />
-    <state width="1877" height="260" key="GridCell.Tab.1.right" timestamp="1604645636604">
+    <state width="1877" height="260" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604649009905" />
+    <state width="1877" height="260" key="GridCell.Tab.1.right" timestamp="1604649009905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="260" key="GridCell.Tab.1.right/0.0.1920.1040/-1080.-129.1080.1880@0.0.1920.1040" timestamp="1604645636604" />
-    <state width="1877" height="260" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604393039778" />
+    <state width="1877" height="260" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604649009905" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/DeepImagePrior$main.coverage" NAME="main Coverage Results" MODIFIED="1604645652898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DeepImagePrior$main.coverage" NAME="main Coverage Results" MODIFIED="1604984275069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -5,11 +5,11 @@ num_workers: 4
 seed: 17
 
 # dataset
-img_dir: './tower.jpg'
-mask_dir: './mask.png'   # for image inpainting
+img_dir: './data/00000242.jpg'
+mask_dir: './data/mask.png'   # for image inpainting
 
 # task
-task: 'SuperResolution'  # 'Inpaint', 'SuperResolution' available
+task: 'Inpaint'  # 'Inpaint', 'SuperResolution' available
 experiment_folder: './inpaint_exp'
 
 # Network

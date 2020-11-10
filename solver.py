@@ -5,8 +5,7 @@ from skimage.io import imread, imsave, imshow
 from src import network
 from pathlib2 import Path
 from skimage import img_as_ubyte
-from MyModules.Tools import ProcessBar, CSV_Recorder, ElapsedTimeProcess
-from MyModules.NeuralNet.ImageDataProcess.functional import _to_tensor, _normalize, simple_denorm
+from src.tools import ProcessBar, CSV_Recorder, ElapsedTimeProcess, to_tensor, normalize, simple_denorm
 
 
 def to_numpy_img(img):
@@ -15,12 +14,12 @@ def to_numpy_img(img):
 
 
 def normalize_and_to_tensor(img):
-    img = _to_tensor(_normalize(img, mean=0.5, std=0.5)).unsqueeze(dim=0).float()
+    img = to_tensor(normalize(img, mean=0.5, std=0.5)).unsqueeze(dim=0).float()
     return img
 
 
-def to_tensor(img):
-    img = _to_tensor(img).unsqueeze(dim=0).float()
+def to_tensor_only(img):
+    img = to_tensor(img).unsqueeze(dim=0).float()
     return img
 
 
@@ -50,7 +49,7 @@ class Solver(object):
 
             # ToTensor
             self.img = normalize_and_to_tensor(img).to(self.dev)
-            self.mask = to_tensor(mask).to(self.dev)
+            self.mask = to_tensor_only(mask).to(self.dev)
 
             # noise
             self.z = torch.randn_like(self.mask)
